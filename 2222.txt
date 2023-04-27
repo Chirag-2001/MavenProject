@@ -1,0 +1,23 @@
+docker network ls
+NETWORK ID     NAME         DRIVER    SCOPE
+9a54549057dd   bridge       bridge    local
+45e566e3b1bb   host         host      local
+42b54983a213   my-network   bridge    local
+15485daf9ef2   none         null      local
+
+docker network create mongo-network
+6b084bd439c681ccb7b3d637d8dab64501184cd1bc858a68fd417f522c507ffb
+
+docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --net mongo-network mongo
+where user name is admin, password is password, name of conainer is mongodb, network name is mongo-network
+
+docker run -d -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password --net mongo-network --name mongo-express -e ME_CONFIG_MONGODB_SERVER=mongodb mongo-express
+fa3217045ed07fce97937174023c4edc3ccf1b117e756cede096207c5ebe40b7
+
+ docker logs fa3217045ed07fce97937174023c4edc3ccf1b117e756cede096207c5ebe40b7
+Welcome to mongo-express
+------------------------
+(node:7) [MONGODB DRIVER] Warning: Current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+Mongo Express server listening at http://0.0.0.0:8081
+Server is open to allow connections from anyone (0.0.0.0)
+basicAuth credentials are "admin:pass", it is recommended you change this in your config.js!
