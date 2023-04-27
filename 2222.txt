@@ -1,3 +1,4 @@
+#these are the networks provided by docker itself
 docker network ls
 NETWORK ID     NAME         DRIVER    SCOPE
 9a54549057dd   bridge       bridge    local
