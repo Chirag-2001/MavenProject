@@ -2,6 +2,7 @@
 #please do check the server whether it is running or not
 #please create a new network id
 docker network ls
+hello hi bye
 NETWORK ID     NAME         DRIVER    SCOPE
 9a54549057dd   bridge       bridge    local
 45e566e3b1bb   host         host      local
