@@ -1,5 +1,6 @@
 #these are the networks provided by docker itself
 #please do check the server whether it is running or not
+#please create a new network id
 docker network ls
 NETWORK ID     NAME         DRIVER    SCOPE
 9a54549057dd   bridge       bridge    local
